@@ -25,7 +25,7 @@ export const mahasiswaRoute = new Elysia({
     prefix: "/mahasiswa"
 });
 
-// GET (Ambil data berdasarkan ID)
+// GET 
 mahasiswaRoute.get("/:id", ({ params }) => {
     const mahasiswaId = params.id;
     const data = mahasiswa.find(m => m.id === parseInt(mahasiswaId));
@@ -36,7 +36,7 @@ mahasiswaRoute.get("/:id", ({ params }) => {
     }
 });
 
-// POST (Tambah data baru)
+// POST 
 mahasiswaRoute.post("/", ({ body }: any) => {
     if (body) {
         return body;
@@ -45,7 +45,7 @@ mahasiswaRoute.post("/", ({ body }: any) => {
     }
 });
 
-// PUT (Mengubah/menimpa seluruh data berdasarkan ID)
+// PUT 
 mahasiswaRoute.put("/:id", ({ params, body }: any) => {
     const id = parseInt(params.id);
     const index = mahasiswa.findIndex(m => m.id === id);
@@ -57,7 +57,7 @@ mahasiswaRoute.put("/:id", ({ params, body }: any) => {
     return { error: "Mahasiswa tidak ditemukan" };
 });
 
-// PATCH (Mengubah sebagian data berdasarkan ID)
+// PATCH 
 mahasiswaRoute.patch("/:id", ({ params, body }: any) => {
     const id = parseInt(params.id);
     const index = mahasiswa.findIndex(m => m.id === id);
@@ -69,7 +69,7 @@ mahasiswaRoute.patch("/:id", ({ params, body }: any) => {
     return { error: "Mahasiswa tidak ditemukan" };
 });
 
-// DELETE (Hapus data berdasarkan ID)
+// DELETE 
 mahasiswaRoute.delete("/:id", ({ params }) => {
     const id = parseInt(params.id);
     const index = mahasiswa.findIndex(m => m.id === id);
@@ -81,7 +81,7 @@ mahasiswaRoute.delete("/:id", ({ params }) => {
     return { error: "Mahasiswa tidak ditemukan" };
 });
 
-// CONNECT (Uji coba koneksi/tunnel)
+// CONNECT 
 mahasiswaRoute.connect("/", () => {
     return { message: "Koneksi CONNECT berhasil tersambung" };
 });
